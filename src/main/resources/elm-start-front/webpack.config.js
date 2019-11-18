@@ -45,7 +45,7 @@ var common = {
   output: {
     // 出力するファイル名
     filename: '[name]',
-    // 出力先のパス（絶対パスを指定する必要がある）
+    // 出力先のパス
     path: path.join(__dirname, 'public/js')
   },
 

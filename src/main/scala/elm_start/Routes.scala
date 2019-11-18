@@ -26,7 +26,7 @@ class Routes()(implicit system: ActorSystem, timeout: Timeout) {
     extractLog { implicit log =>
       extractUri { uri =>
         extractMethod { method =>
-          log.info(s"call api. method: ${method.value}, uri: $uri")
+          println(s"call api. method: ${method.value}, uri: $uri")
 
           path(pm = "public" / Remaining) { resource =>
             pathEndOrSingleSlash {

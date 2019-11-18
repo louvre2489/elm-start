@@ -81,10 +81,22 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = "./src/elm/Example/StyleExample.elm");
+/******/ 	return __webpack_require__(__webpack_require__.s = "./src/StyleExample.js");
 /******/ })
 /************************************************************************/
 /******/ ({
+
+/***/ "./src/StyleExample.js":
+/*!*****************************!*\
+  !*** ./src/StyleExample.js ***!
+  \*****************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\n\nconst {\n  Elm\n} = __webpack_require__(/*! ./elm/Example/StyleExample.elm */ \"./src/elm/Example/StyleExample.elm\");\n\nconst mountNode = document.getElementById('elm');\nconst app = Elm.Example.StyleExample.init({\n  node: mountNode\n});\n\n//# sourceURL=webpack:///./src/StyleExample.js?");
+
+/***/ }),
 
 /***/ "./src/elm/Example/StyleExample.elm":
 /*!******************************************!*\

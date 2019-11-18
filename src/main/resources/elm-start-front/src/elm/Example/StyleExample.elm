@@ -39,10 +39,15 @@ update : Msg -> Model -> Model
 update msg model =
     case msg of
         InputFirstName firstName ->
-            { model | firstName = firstName }
+            { model | firstName = firstName, fullName = makeFullName model.familyName model.firstName }
 
         InputFamilyName familyName ->
-            { model | familyName = familyName }
+            { model | familyName = familyName, fullName = makeFullName model.familyName model.firstName }
+
+
+makeFullName : String -> String -> String
+makeFullName familyName firstName =
+    familyName ++ " " ++ firstName
 
 
 view : Model -> Html Msg
@@ -60,7 +65,7 @@ view model =
                         [ div
                             [ class "control" ]
                             [ input
-                                [ type_ "text", placeholder "firstName", value model.firstName, onInput InputFirstName ]
+                                [ type_ "text", class "input is-success is-small", placeholder "familyName", value model.familyName, onInput InputFamilyName ]
                                 []
                             ]
                         ]
@@ -69,8 +74,17 @@ view model =
                         [ div
                             [ class "control" ]
                             [ input
-                                [ type_ "text", placeholder "familyName", value model.familyName, onInput InputFamilyName ]
+                                [ type_ "text", class "input is-rounded is-large", placeholder "firstName", value model.firstName, onInput InputFirstName ]
                                 []
+                            ]
+                        ]
+                    , div
+                        [ class "field" ]
+                        [ div
+                            [ class "control" ]
+                            [ div
+                                [ class "label is-danger" ]
+                                [ text model.fullName ]
                             ]
                         ]
                     ]
