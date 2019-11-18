@@ -39,15 +39,15 @@ update : Msg -> Model -> Model
 update msg model =
     case msg of
         InputFirstName firstName ->
-            { model | firstName = firstName, fullName = makeFullName model.familyName model.firstName }
+            { model | firstName = firstName }
 
         InputFamilyName familyName ->
-            { model | familyName = familyName, fullName = makeFullName model.familyName model.firstName }
+            { model | familyName = familyName }
 
 
-makeFullName : String -> String -> String
-makeFullName familyName firstName =
-    familyName ++ " " ++ firstName
+makeFullName : Model -> String
+makeFullName model =
+    model.familyName ++ " " ++ model.firstName
 
 
 view : Model -> Html Msg
@@ -82,9 +82,9 @@ view model =
                         [ class "field" ]
                         [ div
                             [ class "control" ]
-                            [ div
-                                [ class "label is-danger" ]
-                                [ text model.fullName ]
+                            [ p
+                                [ class "label has-text-info" ]
+                                [ text (makeFullName model) ]
                             ]
                         ]
                     ]
