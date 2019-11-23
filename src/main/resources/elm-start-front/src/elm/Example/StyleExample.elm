@@ -83,7 +83,7 @@ view model =
                         [ div
                             [ class "control" ]
                             [ p
-                                [ class "label has-text-info" ]
+                                [ class "label has-text-info custom" ]
                                 [ text (makeFullName model) ]
                             ]
                         ]

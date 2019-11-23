@@ -25,7 +25,7 @@ object WebServer {
       Http().bindAndHandle(Routes().routes, host, port)
 
     // message for console
-    println(s"Server online at https://$host:$port/\nPress RETURN to stop...")
+    println(s"Server online at http://$host:$port/\nPress RETURN to stop...")
 
     StdIn.readLine()
 
